@@ -31,6 +31,11 @@ post('/addToCart/:id') do
       shirt_id: params[:id]
     }
     buyer = Buyer.create(buyer_hash)
+    
+    transaction_hash = {
+      shirt_id: params[:id],
+      buyer_id: ,
+    }
   else
     shirt = Shirt.find_by({id: params[:id]})
     binding.pry
@@ -42,6 +47,11 @@ post('/addToCart/:id') do
       shirt_id: params[:id]
     }
     buyer.update(buyer_hash)
+
+    transaction_hash = {
+      shirt_id: params[:id],
+      buyer_id: ,
+    }
   end
   
   erb :continue, locals: { buyers: buyer }
