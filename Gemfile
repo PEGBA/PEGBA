@@ -3,8 +3,8 @@ source "https://rubygems.org"
 
 # gem "rails"
 
-require 'pry'
-require 'sinatra'
-require 'json'
-require 'sinatra/reloader'
-require 'activerecord'
+gem 'pry'
+gem 'sinatra'
+gem 'json'
+gem 'sinatra/reloader'
+gem 'activerecord'
