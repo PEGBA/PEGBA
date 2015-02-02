@@ -12,7 +12,8 @@ CREATE TABLE buyers (
 	email TEXT,
 	quantity INTEGER,
 	color TEXT,
-	shirt_id INTEGER references shirts
+	shirt_id INTEGER references shirts,
+	purchase_id INTEGER
 );
 
 CREATE TABLE purchases (
