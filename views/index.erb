@@ -22,9 +22,11 @@
     <ul>
       <% shirts.each do |shirt| %>
         <li>
-          <%= shirt[:color] %>
-          <p>Amount Available: <%= shirt[:quantity] %></p>
-          <img src="<%= shirt[:img_url] %>">
+          <a href='/confirm/<% shirt[:id]%>'>
+            <%= shirt[:color] %>
+            <p>Amount Available: <%= shirt[:quantity] %></p>
+            <img src="<%= shirt[:img_url] %>">
+          </a>
         </li>
       <% end %>
     </ul>
