@@ -30,11 +30,18 @@ post('/addToCart/:id') do
 
   buyer = Buyer.create(buyer_hash)
   erb :continue, locals: { buyers: buyer }
-
 end
 
-get ('/checkout') do
-	erb :return
+get('/checkout/:id') do
+  current_buyer = Buyer.find_by({id: params[:id]})
+
+	erb :checkout, locals: { buyer: current_buyer }
+end
+
+put("/confirm/:id") do
+  thank_buyer = Buyer.find_by({id: params[:id]})
+
+  erb :thank, locals:{ buyer: thank_buyer }
 end
 
 get ('/admin') do
