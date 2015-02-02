@@ -13,27 +13,29 @@ get ('/') do
   erb :index, locals: { shirts: Shirt.all(),}
 end
 
-get("/confirm/:id") do
+get("/cart/:id") do
   shirt = Shirt.find_by({id: params[:id]})
-  erb :confirm, locals: { shirt: shirt }
+  erb :cart, locals: { shirt: shirt }
 end
 
-post('/confirm/:id') do
+post('/addToCart/:id') do
+  binding.pry
+  shirt = Shirt.find_by({id: params[:id]})
 	buyer_hash = {
-    name: params["name"],
-    email: params["email"],
-    quantity: params["quantity"],
-    color: params["color"],
+    name: params[:name],
+    email: params[:email],
+    quantity: params[:quantity],
+    color: shirt.color,
     shirt_id: params[:id]
   }
 
   new_buyer = Buyer.create(buyer_hash)
 
-  erb :return, locals: { buyer: new_buyer }
+  erb :continue, locals: { buyer: new_buyer }
 
 end
 
-get ('/return') do
+get ('/checkout') do
 	erb :return
 end
 
