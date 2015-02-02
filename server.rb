@@ -19,29 +19,38 @@ get("/cart/:id") do
 end
 
 post('/addToCart/:id') do
-  shirt = Shirt.find_by({id: params[:id]})
-	buyer_hash = {
-    name: params[:name],
-    email: params[:email],
-    quantity: params[:quantity],
-    color: shirt.color,
-    shirt_id: params[:id]
-  }
 
-  blah = Buyer.find_by({email: params[:email]})
-
-  if blah == nil 
-      buyer = Buyer.create(buyer_hash)
+  buyer = Buyer.find_by({email: params[:email]})
+  if buyer == nil
+    shirt = Shirt.find_by({id: params[:id]})
+    buyer_hash = {
+      name: params[:name],
+      email: params[:email],
+      quantity: params[:quantity],
+      color: shirt.color,
+      shirt_id: params[:id]
+    }
+    buyer = Buyer.create(buyer_hash)
   else
-      buyer = Buyer.find_by({email: params[:email]})
+    shirt = Shirt.find_by({id: params[:id]})
+    binding.pry
+    buyer_hash = {
+      name: buyer[:name],
+      email: buyer[:email],
+      quantity: params[:quantity],
+      color: shirt.color,
+      shirt_id: params[:id]
+    }
+    buyer.update(buyer_hash)
   end
-
-
+  
   erb :continue, locals: { buyers: buyer }
 end
 
 get ('/checkout') do
-	erb :return
+
+
+  erb :return
 end
 
 get ('/admin') do
