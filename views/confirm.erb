@@ -12,24 +12,16 @@
 
   <body>
 
+    <h3> Please review your order below. </h3>
+
+    <p> Your Name: <%= buyer.name %> </p>
+    <p> Your Email: <%= buyer.email %> </p>
+    <p> Shirt Color: <%= shirt.color %> </p>
+    <p> Quantity: <%= buyer.quantity %> </p>
+
     <img src='<%= shirt[:img_url] %>'>
 
-    <form action="/addToCart/<%= shirt.id %>" method="post">
-
-      <input type="text" name="name" placeholder="Your Fullname">
-      <input type="text" name="email" placeholder="Your Email">
-
-      <select name="quantity">
-
-        <% for i in 0..shirt.quantity%>
-            <option value="<%= i %>"> <%= i %> </option>
-        <% end %>
-
-      </select>
-
-      <button>Add to cart</button>
-
-    </form>
+    <button id='confirm'> Confirm Order </button>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>

@@ -18,21 +18,23 @@ get("/cart/:id") do
   erb :cart, locals: { shirt: shirt }
 end
 
-post('/confirm/:id') do
+post('/addToCart/:id') do
+  shirt = Shirt.find_by({id: params[:id]})
 	buyer_hash = {
-    name: params["name"],
-    email: params["email"],
-    quantity: params["quantity"],
-    color: params["color"],
+    name: params[:name],
+    email: params[:email],
+    quantity: params[:quantity],
+    color: shirt.color,
     shirt_id: params[:id]
   }
 
-  new_buyer = Buyer.create(buyer_hash)
+  Buyer.create(buyer_hash)
+  buyer = Buyer.find_by({id: params[:id]})
+  erb :continue, locals: { buyer: buyer }
 
-  erb :return, locals: { buyer: new_buyer }
 end
 
-get ('/return') do
+get ('/checkout') do
 	erb :return
 end
 
