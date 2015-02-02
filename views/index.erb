@@ -12,13 +12,9 @@
     <ul>
       <% shirts.each do |shirt| %>
         <li>
-
-          <%= shirt[:id] %>
           <%= shirt[:color] %>
-          <%= shirt[:qty] %>
+          <p>Amount Available <%= shirt[:quantity] %></p>
           <img src="<%= shirt[:img_url] %>">
-
-
         </li>
       <% end %>
     </ul>
