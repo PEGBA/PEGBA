@@ -18,5 +18,6 @@ CREATE TABLE buyers (
 CREATE TABLE purchases (
 	id INTEGER PRIMARY KEY,
 	shirt_id INTEGER references shirts,
-	buyer_id INTEGER references buyers
+	buyer_id INTEGER references buyers,
+	quantity INTEGER
 );
