@@ -22,7 +22,7 @@
     <ul>
       <% shirts.each do |shirt| %>
         <li>
-          <a href='/confirm/<% shirt[:id]%>'>
+          <a href='/confirm/<%= shirt[:id]%>'>
             <%= shirt[:color] %>
             <p>Amount Available: <%= shirt[:quantity] %></p>
             <img src="<%= shirt[:img_url] %>">
