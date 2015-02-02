@@ -28,9 +28,8 @@ post('/addToCart/:id') do
     shirt_id: params[:id]
   }
 
-  Buyer.create(buyer_hash)
-  buyer = Buyer.find_by({id: params[:id]})
-  erb :continue, locals: { buyer: buyer }
+  buyer = Buyer.create(buyer_hash)
+  erb :continue, locals: { buyers: buyer }
 
 end
 
