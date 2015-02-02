@@ -10,10 +10,17 @@ after do
 end
 
 get ('/') do
-	erb :index
+	erb :index, locals: { shirts: Shirt.all(),}
 end
 
-get ('/') do
-	#confirmation page
+get ('/confirm') do
+	erb :confirm
 end
 
+get ('/return') do
+	erb :return
+end
+
+get ('/admin') do
+	erb :admin
+end
