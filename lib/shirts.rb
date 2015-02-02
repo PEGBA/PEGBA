@@ -2,6 +2,6 @@ require 'active_record'
 
 class Shirt < ActiveRecord::Base
   def buyers
-    Buyer.where({shirt_id: self.id}) 
+    Buyer.where({shirtID: self.id}) 
   end
 end
