@@ -13,9 +13,9 @@ get ('/') do
   erb :index, locals: { shirts: Shirt.all(),}
 end
 
-get("/confirm/:id") do
+get("/cart/:id") do
   shirt = Shirt.find_by({id: params[:id]})
-  erb :confirm, locals: { shirt: shirt }
+  erb :cart, locals: { shirt: shirt }
 end
 
 post('/confirm/:id') do
@@ -30,7 +30,6 @@ post('/confirm/:id') do
   new_buyer = Buyer.create(buyer_hash)
 
   erb :return, locals: { buyer: new_buyer }
-
 end
 
 get ('/return') do
