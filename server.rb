@@ -28,9 +28,16 @@ post('/addToCart/:id') do
     shirt_id: params[:id]
   }
 
-  buyer = Buyer.create(buyer_hash)
-  erb :continue, locals: { buyers: buyer }
+  blah = Buyer.find_by({email: params[:email]})
 
+  if blah == nil 
+      buyer = Buyer.create(buyer_hash)
+  else
+      buyer = Buyer.find_by({email: params[:email]})
+  end
+
+
+  erb :continue, locals: { buyers: buyer }
 end
 
 get ('/checkout') do
