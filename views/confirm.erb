@@ -15,9 +15,10 @@
     <img src='<%= shirt[:img_url] %>'>
 
     <select>
-      <% for(i=0; i<shirt.quantity; i++) { %>
-          <option value="#{i}"> #{i} </option>
-      <% } %>
+
+      <!-- <%# for i in (0..shirt.quantity.to_i) %> -->
+       <p><%= "#{shirt.quantity}" %></p>
+      <!-- <%# end %> -->
     </select>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
