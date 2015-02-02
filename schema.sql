@@ -12,5 +12,5 @@ CREATE TABLE buyers(
 	email TEXT,
 	quantity INTEGER,
 	color TEXT,
-	shirtID INTEGER
+	shirtID INTEGER references shirts
 );
