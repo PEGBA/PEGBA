@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="/styles.css">
@@ -14,15 +14,18 @@
 
     <img src='<%= shirt[:img_url] %>'>
 
-    <select>
+    <form action="/confirm/:id" method="post">
+      <select>
+        <% for i in 0..(shirt.quantity)%>
+            <option value="#{i}"> <%=i%> </option>
+        <% end %>
+      </select>
+      <button>Add to cart</button>
+    </form>
 
-      <!-- <%# for i in (0..shirt.quantity.to_i) %> -->
-       <p><%= "#{shirt.quantity}" %></p>
-      <!-- <%# end %> -->
-    </select>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
   <script src='/index.js'></script>
+
   </body>
 </html>

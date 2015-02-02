@@ -1,4 +1,4 @@
-CREATE TABLE shirts(
+CREATE TABLE shirts (
 	id INTEGER PRIMARY KEY,
 	color TEXT,
 	quantity INTEGER,
@@ -6,11 +6,17 @@ CREATE TABLE shirts(
 	price INTEGER
 );
 
-CREATE TABLE buyers(
+CREATE TABLE buyers (
 	id INTEGER PRIMARY KEY,
 	name TEXT,
 	email TEXT,
 	quantity INTEGER,
 	color TEXT,
-	shirtID INTEGER references shirts
+	shirt_id INTEGER references shirts
+);
+
+CREATE TABLE purchases (
+	id INTEGER PRIMARY KEY,
+	shirt_id INTEGER references shirts,
+	buyer_id INTEGER references buyers
 );
