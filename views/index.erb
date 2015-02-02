@@ -1,17 +1,30 @@
 <!DOCTYPE >
 <html lang="en">
+
 <head>
   <link rel="stylesheet" type="text/css" href="/styles.css">
   <meta charset="UTF-8">
-  <title>Characters</title>
+  <title>PEGBA</title>
 </head>
-<body>
-  <ul>
-    <% shirts.each do |shirt| %>
-      <li>
-        <%= shirt.color %>
-      </li>
-    <% end %>
-  </ul>
-</body>
+
+  <body>
+    <div class = "container">
+      <div class = "jumbotron">
+        <h1>Welcome to PEGBA!</h1>
+        <h3>At PEGBA, or Previously Enjoyed Goods by Alvin, we pride ourselves on providing
+          the highest quality t-shirts. These t-shirts are not used - they were just previously
+          enjoyed by someone else that is not you.</h3>
+      </div>
+    </div>
+    <ul>
+      <% shirts.each do |shirt| %>
+        <li>
+          <%= shirt[:color] %>
+          <p>Amount Available: <%= shirt[:quantity] %></p>
+          <img src="<%= shirt[:img_url] %>">
+        </li>
+      <% end %>
+    </ul>
+
+  </body>
 </html>
