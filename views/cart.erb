@@ -14,11 +14,14 @@
 
     <img src='<%= shirt[:img_url] %>'>
 
-    <select>
-      <% for i in 0..(shirt.quantity)%>
-          <option value="#{i}"> <%=i%> </option>
-      <% end %>
-    </select>
+    <form action="/confirm/:id" method="post">
+      <select>
+        <% for i in 0..(shirt.quantity)%>
+            <option value="#{i}"> <%=i%> </option>
+        <% end %>
+      </select>
+      <button>Add to cart</button>
+    </form>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
