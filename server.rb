@@ -24,7 +24,7 @@ post('/confirm/:id') do
     email: params["email"],
     quantity: params["quantity"],
     color: params["color"],
-    shirtID: params[:id]
+    shirt_id: params[:id]
   }
 
   new_buyer = Buyer.create(buyer_hash)
