@@ -1,21 +1,27 @@
 <!DOCTYPE >
 <html lang="en">
+
 <head>
   <link rel="stylesheet" type="text/css" href="/styles.css">
   <meta charset="UTF-8">
   <title>Characters</title>
 </head>
-<body>
-  <ul>
-    <% shirts.each do |shirt| %>
-      <li>
-        
-        <%= shirt[0] %>
-        <%= shirt[1] %>
-        <%= shirt[2] %>
-        
-      </li>
-    <% end %>
-  </ul>
-</body>
+
+  <body>
+
+    <ul>
+      <% shirts.each do |shirt| %>
+        <li>
+
+          <%= shirt[:id] %>
+          <%= shirt[:color] %>
+          <%= shirt[:qty] %>
+          <img src="<%= shirt[:img_url] %>">
+
+
+        </li>
+      <% end %>
+    </ul>
+
+  </body>
 </html>
