@@ -29,16 +29,15 @@
 
     </div>
 
-
       <div id="toggle">
         <div id="see">
           <button id="edit">Edit Purchase</button>
         </div>
 
         <div id="hide">
-          <form action="" method="post">
+          <form action="/confirm_update/<%= buyer.id %>" method="post">
             <input type="hidden" name="_method" value="put">
-            <input type="text" name="<%= buyer.quantity %>" value="put">
+            <input type="text" name="quantity" placeholder="<%= shirt %>">
             <button>Update Information</button>
           </form>
         </div>
