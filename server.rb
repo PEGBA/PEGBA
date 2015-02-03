@@ -30,7 +30,7 @@ post('/addToCart/:id') do
     }
 
   buyer = Buyer.create(buyer_hash)
-  erb :checkout, locals: { buyer: buyer }
+  erb :checkout, locals: { buyer: buyer, shirt: shirt.quantity }
 end
 
 put("/confirm/:id") do
@@ -58,8 +58,60 @@ put("/confirm/:id") do
   erb :thank, locals:{ buyer: thank_buyer, purchase: transaction }
 end
 
+put ('/confirm_update/:id') do
+  update_quantity = params[:quantity]
+  puts update_quantity
+  thank_buyer = Buyer.find_by({id: params[:id]})
+
+  transaction_hash = {
+    shirt_id: thank_buyer[:shirt_id],
+    buyer_id: thank_buyer[:id],
+    quantity: update_quantity
+  }
+
+  transaction = Purchase.create(transaction_hash)
+
+  shirt = Shirt.find_by({id: thank_buyer[:shirt_id]})
+  shirt_hash = {
+    color: shirt[:color],
+    quantity: shirt[:quantity] - thank_buyer[:quantity],
+    img_url: shirt[:img_url],
+    price: shirt[:price]
+  }
+
+  shirt.update(shirt_hash)
+
+  #erb :thank, locals:{ buyer: thank_buyer, purchase: transaction }
+  redirect("/confirmed/#{thank_buyer.id}")
+end
+
+get ("/confirmed/:id") do
+
+  thank_buyer = Buyer.find_by({id: params[:id]})
+
+  transaction_hash = {
+    shirt_id: thank_buyer[:shirt_id],
+    buyer_id: thank_buyer[:id],
+    quantity: thank_buyer[:quantity]
+  }
+
+  transaction = Purchase.create(transaction_hash)
+
+  shirt = Shirt.find_by({id: thank_buyer[:shirt_id]})
+  shirt_hash = {
+    color: shirt[:color],
+    quantity: shirt[:quantity] - thank_buyer[:quantity],
+    img_url: shirt[:img_url],
+    price: shirt[:price]
+  }
+
+  shirt.update(shirt_hash)
+
+  erb :thank, locals:{ buyer: thank_buyer, purchase: transaction }
+end
+
 get ('/admin') do
 
 	erb :admin, locals:{ buyer: Buyer.all(), shirt: Shirt.all() }
-  
+
 end
