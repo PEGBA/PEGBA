@@ -9,7 +9,7 @@ Shirt.create({
 	quantity: 10,
 	img_url: "http://www.stevecurtin.com/blog/wp-content/uploads/2011/09/red-t-shirt.jpg",
 	price: 10,
-	owner: "Alvin Liang"
+	owner: "Jason Ng"
 	})
 
 Shirt.create({
@@ -17,7 +17,7 @@ Shirt.create({
 	quantity: 10,
 	img_url: "http://superhosting.pro/files/images/ecommerce/blue_shirt.jpg",
 	price: 10,
-	owner: "Marc Derisse"
+	owner: "Jason Ng"
 	})
 
 Shirt.create({
@@ -25,7 +25,7 @@ Shirt.create({
 	quantity: 10,
 	img_url: "http://www.theadairgroup.com/images/neon%20Pink.jpg",
 	price: 10,
-	owner: "Ciara Foran"
+	owner: "Jason Ng"
 	})
 
 Shirt.create({
@@ -49,7 +49,7 @@ Shirt.create({
 	quantity: 10,
 	img_url: "https://weslinde.files.wordpress.com/2011/11/white-shirt-4.jpg",
 	price: 10,
-	owner: "Taylor Swift"
+	owner: "Jason Ng"
 	})
 
 Shirt.create({
