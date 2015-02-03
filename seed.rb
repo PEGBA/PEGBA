@@ -21,14 +21,14 @@ Shirt.create({
 Shirt.create({
 	color: "pink",
 	quantity: 10,
-	img_url: "http://jwmft.ednet.ns.ca/WP/wp-content/uploads/2014/05/pinkshirt.png",
+	img_url: "http://www.theadairgroup.com/images/neon%20Pink.jpg",
 	price: 10
 	})
 
 Shirt.create({
 	color: "green",
 	quantity: 10,
-	img_url: "http://i.ebayimg.com/00/s/MTE0OFgxMjAw/z/S1wAAMXQskFRHyxq/$T2eC16FHJF8E9nnC6MK(BRHy)pw-hg~~60_35.JPG",
+	img_url: "http://www.yurto.com/wp-content/uploads/2012/08/green-shirt.jpg",
 	price: 10
 	})
 

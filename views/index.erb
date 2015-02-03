@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="/styles.css">
+  <link rel="stylesheet" type="text/css" href="/style.css">
   <meta charset="UTF-8">
   <title>PEGBA</title>
 </head>
@@ -19,17 +19,19 @@
           enjoyed by someone else that is not you.</h3>
       </div>
     </div>
-    <ul>
+    <div class = "container">
+      <div class = "row" id = "shirt">
       <% shirts.each do |shirt| %>
-        <li>
+        <div class = "col-md-3">
           <a href='/cart/<%= shirt[:id]%>'>
             <%= shirt[:color] %>
             <p>Amount Available: <%= shirt[:quantity] %></p>
             <img src="<%= shirt[:img_url] %>">
           </a>
-        </li>
+        </div>
       <% end %>
-    </ul>
+      </div>
+    </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
