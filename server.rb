@@ -11,7 +11,7 @@ after do
 end
 
 get ('/') do
-  erb :index, locals: { shirts: Shirt.all(),}
+  erb :index, locals: { shirts: Shirt.all() }
 end
 
 get("/cart/:id") do
@@ -59,5 +59,7 @@ put("/confirm/:id") do
 end
 
 get ('/admin') do
-	erb :admin, locals: { shirts: Shirt.all() }
+
+	erb :admin, locals:{ buyer: Buyer.all(), shirt: Shirt.all() }
+  
 end
