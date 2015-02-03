@@ -10,7 +10,7 @@ after do
 end
 
 get ('/') do
-  erb :index, locals: { shirts: Shirt.all(),}
+  erb :index, locals: { shirts: Shirt.all() }
 end
 
 get("/cart/:id") do
@@ -30,11 +30,11 @@ post('/addToCart/:id') do
       shirt_id: params[:id]
     }
     buyer = Buyer.create(buyer_hash)
-    
-    transaction_hash = {
-      shirt_id: params[:id],
-      buyer_id: ,
-    }
+
+    # transaction_hash = {
+    #   shirt_id: params[:id],
+    #   buyer_id: ,
+    # }
   else
     shirt = Shirt.find_by({id: params[:id]})
     binding.pry
@@ -47,10 +47,10 @@ post('/addToCart/:id') do
     }
     buyer.update(buyer_hash)
 
-    transaction_hash = {
-      shirt_id: params[:id],
-      buyer_id: ,
-    }
+    # transaction_hash = {
+    #   shirt_id: params[:id],
+    #   buyer_id: ,
+    # }
   end
 
   buyer = Buyer.create(buyer_hash)
@@ -70,5 +70,6 @@ put("/confirm/:id") do
 end
 
 get ('/admin') do
-	erb :admin
+
+	erb :admin, locals:{ buyer: Buyer.all(), shirt: Shirt.all() }
 end
