@@ -5,29 +5,61 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="/styles.css">
+
+  <link rel="stylesheet" type="text/css" href="/check.css">
+
+  <link rel="stylesheet" type="text/css" href="/style.css">
+
   <meta charset="UTF-8">
   <title>PEGBA</title>
 </head>
 
   <body>
-    <div>
-      <h1>PEGBA</h1>
+    <div id = "checkout_header">
+      <h1>PEGBA CHECKOUT</h1>
     </div>
 
-      <h2>Checkout now <%= buyer.name %></h2>
+    <div id = "checkout_review">
+      <h3> Please review your order below. </h3>
 
-      <p>Currently have <%= buyer.quantity %> number of items</p>
+      <p> Your Name: <%= buyer.name %> </p>
+      <p> Your Email: <%= buyer.email %> </p>
+      <p> Shirt Color: <%= buyer.color %> </p>
+      <p> Quantity: <%= buyer.quantity %> </p>
 
-      <p><%= buyer.name %> please confirm the number of items and your email is correct </p>
+    </div>
+
+<<<<<<< HEAD
+      <div id="toggle">
+        <div id="see">
+          <button id="edit">Edit Purchase</button>
+        </div>
+
+        <div id="hide">
+          <form action="" method="post">
+            <input type="hidden" name="_method" value="put">
+            <input type="text" name="<%= buyer.quantity %>" value="put">
+            <button>Update Information</button>
+          </form>
+        </div>
+      </div>
 
     <form action="/confirm/<%= buyer.id %>" method="post">
       <input type="hidden" name="_method" value="put">
       <button>Click to Confirm order</button>
     </form>
+=======
+    <div id = "checkout_confirm">
+      <form action="/confirm/<%= buyer.id %>" method="post">
+        <input type="hidden" name="_method" value="put">
+        <button>Click to Confirm order</button>
+      </form>
+    </div>
+>>>>>>> d72cc502a440e8723a0f8f3de55b389007030d19
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
   <script src='/index.js'></script>
+  <script src='/edit.js'></script>
   </body>
 </html>

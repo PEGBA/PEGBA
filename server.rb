@@ -60,6 +60,6 @@ end
 
 get ('/admin') do
 
-
 	erb :admin, locals:{ buyer: Buyer.all(), shirt: Shirt.all() }
+  
 end
