@@ -13,12 +13,11 @@ CREATE TABLE buyers (
 	quantity INTEGER,
 	color TEXT,
 	shirt_id INTEGER references shirts,
-	purchase_id INTEGER
 );
 
 CREATE TABLE purchases (
 	id INTEGER PRIMARY KEY,
-	shirt_id INTEGER references shirts,
-	buyer_id INTEGER references buyers,
+	shirt_id INTEGER,
+	buyer_id INTEGER,
 	quantity INTEGER
 );

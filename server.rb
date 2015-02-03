@@ -3,6 +3,7 @@ require 'sinatra/reloader'
 require_relative './lib/connection'
 require_relative './lib/shirts'
 require_relative './lib/buyers'
+require_relative './lib/purchases'
 require 'pry'
 
 after do
@@ -19,54 +20,43 @@ get("/cart/:id") do
 end
 
 post('/addToCart/:id') do
-  buyer = Buyer.find_by({email: params[:email]})
-  if buyer == nil
-    shirt = Shirt.find_by({id: params[:id]})
-    buyer_hash = {
-      name: params[:name],
-      email: params[:email],
-      quantity: params[:quantity],
-      color: shirt.color,
-      shirt_id: params[:id]
-    }
-    buyer = Buyer.create(buyer_hash)
-    
-    transaction_hash = {
-      shirt_id: params[:id],
-      buyer_id: ,
-    }
-  else
-    shirt = Shirt.find_by({id: params[:id]})
-    binding.pry
-    buyer_hash = {
-      name: buyer[:name],
-      email: buyer[:email],
-      quantity: params[:quantity],
-      color: shirt.color,
-      shirt_id: params[:id]
-    }
-    buyer.update(buyer_hash)
 
-    transaction_hash = {
-      shirt_id: params[:id],
-      buyer_id: ,
+  shirt = Shirt.find_by({id: params[:id]})
+  buyer_hash = {
+    name: params[:name],
+    email: params[:email],
+    quantity: params[:quantity],
+    color: shirt.color,
+    shirt_id: params[:id]
     }
-  end
 
   buyer = Buyer.create(buyer_hash)
-  erb :continue, locals: { buyers: buyer }
-end
-
-get('/checkout/:id') do
-  current_buyer = Buyer.find_by({id: params[:id]})
-
-	erb :checkout, locals: { buyer: current_buyer }
+  erb :checkout, locals: { buyer: buyer }
 end
 
 put("/confirm/:id") do
+
   thank_buyer = Buyer.find_by({id: params[:id]})
 
-  erb :thank, locals:{ buyer: thank_buyer }
+  transaction_hash = {
+    shirt_id: thank_buyer[:shirt_id],
+    buyer_id: thank_buyer[:id],
+    quantity: thank_buyer[:quantity]
+  }
+
+  transaction = Purchase.create(transaction_hash)
+
+  shirt = Shirt.find_by({id: thank_buyer[:shirt_id]})
+  shirt_hash = {
+    color: shirt[:color],
+    quantity: shirt[:quantity] - thank_buyer[:quantity],
+    img_url: shirt[:img_url],
+    price: shirt[:price]
+  }
+
+  shirt.update(shirt_hash)
+
+  erb :thank, locals:{ buyer: thank_buyer, purchase: transaction }
 end
 
 get ('/admin') do
