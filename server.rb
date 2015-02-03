@@ -20,6 +20,7 @@ end
 
 post('/addToCart/:id') do
   buyer = Buyer.find_by({email: params[:email]})
+
   if buyer == nil
     shirt = Shirt.find_by({id: params[:id]})
     buyer_hash = {
@@ -31,10 +32,7 @@ post('/addToCart/:id') do
     }
     buyer = Buyer.create(buyer_hash)
     
-    transaction_hash = {
-      shirt_id: params[:id],
-      buyer_id: ,
-    }
+    
   else
     shirt = Shirt.find_by({id: params[:id]})
     binding.pry
@@ -47,10 +45,7 @@ post('/addToCart/:id') do
     }
     buyer.update(buyer_hash)
 
-    transaction_hash = {
-      shirt_id: params[:id],
-      buyer_id: ,
-    }
+    
   end
 
   buyer = Buyer.create(buyer_hash)
@@ -70,5 +65,5 @@ put("/confirm/:id") do
 end
 
 get ('/admin') do
-	erb :admin
+	erb :admin, locals: { shirts: Shirt.all(),}
 end
