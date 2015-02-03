@@ -5,32 +5,86 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="/styles.css">
+  <link rel="stylesheet" type="text/css" href="/style.css">
   <meta charset="UTF-8">
   <title>PEGBA</title>
 </head>
 
   <body>
+    <!-- Modal -->
+    <div class="modal fade" id="guesswho">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Guess Who?</h4>
+        </div>
+        <div class="modal-body">
+          This shirt was previously enjoyed by <%= shirt.owner %>.
+        </div>
+      </div>
+    </div>
+    </div>
 
-    <img src='<%= shirt[:img_url] %>'>
+    <div class = "container">
+      <div class = "row">
+        <div class = "col-md-6" id = "shirt_image">
+          <img src='<%= shirt[:img_url] %>' class = "cart_image">
+        </div>
 
-    <form action="/addToCart/<%= shirt.id %>" method="post">
+        <div class = "col-md-6" id = "product_header">
+          <h3>Product Details</h3>
+        </div>
 
-      <input type="text" name="name" placeholder="Your Fullname">
-      <input type="text" name="email" placeholder="Your Email">
+        <div class = "col-md-6" id = "product_description">
+          <p>This gorgeous <%= shirt[:color] %> cotton beauty is a Certified Pre-Owned T-shirt (CPOT). We verify that
+            all of our t-shirts have been previously enjoyed by one person and one person only in order to ensure
+            maximum subsequent enjoyment. To find out more about who previously owned your t-shirt, click the
+            Guess Who button.</p>
+        </div>
 
-      <select name="quantity">
+        <div class = "col-md-6" id = "purchase_header">
+          <h3>Purchase T-Shirt</h3>
+        </div>
 
-        <% for i in 0..shirt.quantity%>
-            <option value="<%= i %>"> <%= i %> </option>
-        <% end %>
+        <div class = "col-md-6" id = "purchase_description">
+          <p>To purchase this shirt, please complete the information below.</p>
+        </div>
 
-      </select>
+        <form action="/addToCart/<%= shirt.id %>" method="post">
 
-      <button>Add to cart</button>
+          <div class = "col-md-6" id = "fullname">
+            <input type="text" name="name" placeholder="enter your fullname">
+          </div>
+          <div class = "col-md-6" id = "email">
+            <input type="text" name="email" placeholder="enter your email">
+          </div>
 
-    </form>
+          <div class = "col-md-6" id = "quantity">
+            <select name="quantity">
+              <% for i in 0..shirt.quantity%>
+                  <option value="<%= i %>"> <%= i %> </option>
+              <% end %>
+            </select>
+          </div>
 
+          <div class = "col-md-6" id = "purchase">
+            <button>Purchase</button>
+          </div>
+        </form>
+
+        <div class = "col-md-6 col-md-offset-1" id = "guess">
+          <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#guesswho">
+            Guess Who?
+          </button>
+        </div>
+
+        <div class = "col-md-6" id = "return">
+          <p>To check out other previously enjoyed shirts, click <a href = "/">here</a></p>
+        </div>
+
+      </div>
+    </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
   <script src='/index.js'></script>

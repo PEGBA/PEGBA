@@ -3,7 +3,8 @@ CREATE TABLE shirts (
 	color TEXT,
 	quantity INTEGER,
 	img_url TEXT,
-	price INTEGER
+	price INTEGER,
+	owner TEXT
 );
 
 CREATE TABLE buyers (

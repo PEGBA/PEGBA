@@ -22,11 +22,11 @@
     <div class = "container">
       <div class = "row" id = "shirt">
       <% shirts.each do |shirt| %>
-        <div class = "col-md-3">
+        <div class = "col-md-3" id = "shirt_sub">
           <a href='/cart/<%= shirt[:id]%>'>
+            <img src="<%= shirt[:img_url] %>" class = "index_image"></br>
             <%= shirt[:color] %>
             <p>Amount Available: <%= shirt[:quantity] %></p>
-            <img src="<%= shirt[:img_url] %>">
           </a>
         </div>
       <% end %>
