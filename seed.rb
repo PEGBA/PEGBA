@@ -25,7 +25,7 @@ Shirt.create({
 	quantity: 10,
 	img_url: "http://www.theadairgroup.com/images/neon%20Pink.jpg",
 	price: 10,
-	owner: "Ciara Foran"
+	owner: "Jason Ng"
 	})
 
 Shirt.create({
@@ -49,7 +49,7 @@ Shirt.create({
 	quantity: 10,
 	img_url: "https://weslinde.files.wordpress.com/2011/11/white-shirt-4.jpg",
 	price: 10,
-	owner: "Taylor Swift"
+	owner: "Jason Ng"
 	})
 
 Shirt.create({
