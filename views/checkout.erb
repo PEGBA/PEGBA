@@ -29,6 +29,7 @@
 
     </div>
 
+    <h3 id = "edit_header"> To update the quantity, click the Edit Purchase button.</h3>
 
       <div id="toggle">
         <div id="see">
@@ -36,18 +37,20 @@
         </div>
 
         <div id="hide">
-          <form action="" method="post">
+          <form action="/confirm_update/<%= buyer.id %>" method="post">
             <input type="hidden" name="_method" value="put">
-            <input type="text" name="<%= buyer.quantity %>" value="put">
+            <input type="text" name="quantity" placeholder="max <%= shirt %>">
             <button>Update Information</button>
           </form>
         </div>
       </div>
 
+    <h3 id = "confirm_header"> To proceed to checkout, click the Confirm Order button.</h3>
+
     <div id = "checkout_confirm">
       <form action="/confirm/<%= buyer.id %>" method="post">
         <input type="hidden" name="_method" value="put">
-        <button>Click to Confirm order</button>
+        <button>Confirm Order</button>
       </form>
     </div>
 

@@ -72,10 +72,30 @@
   margin-left: 50px;
 }
 
+#toggle {
+  margin-left: 50px;
+}
+
+#edit_header {
+  margin-left: 50px;
+}
+
+#confirm_header {
+  margin-left: 50px;
+}
+
+#checkout_confirm {
+  margin-left: 50px;
+}
+
 #hide {
   visibility: hidden;
 }
 
 #see {
   visibility: visible;
+}
+
+#thanks {
+  margin-left: 50px;
 }

@@ -9,7 +9,7 @@ Shirt.create({
 	quantity: 10,
 	img_url: "http://www.stevecurtin.com/blog/wp-content/uploads/2011/09/red-t-shirt.jpg",
 	price: 10,
-	owner: "Alvin Liang"
+	owner: "Jason Ng"
 	})
 
 Shirt.create({
@@ -33,7 +33,7 @@ Shirt.create({
 	quantity: 10,
 	img_url: "http://www.yurto.com/wp-content/uploads/2012/08/green-shirt.jpg",
 	price: 10,
-	owner: "Jason Ng"
+	owner: "Alvin Liang"
 	})
 
 Shirt.create({
