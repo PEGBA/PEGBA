@@ -54,13 +54,13 @@
         <form action="/addToCart/<%= shirt.id %>" method="post">
 
           <div class = "col-md-6" id = "fullname">
-            <input type="text" name="name" placeholder="enter your fullname">
+            <input type="text" name="name" placeholder="enter your fullname" required>
           </div>
           <div class = "col-md-6" id = "email">
-            <input type="text" name="email" placeholder="enter your email">
+            <input type="text" name="email" placeholder="enter your email" required>
           </div>
 
-          <div class = "col-md-6" id = "quantity">
+          <div class = "col-md-6" id = "quantity" required>
             <select name="quantity">
               <% for i in 0..shirt.quantity%>
                   <option value="<%= i %>"> <%= i %> </option>
