@@ -60,5 +60,5 @@ put("/confirm/:id") do
 end
 
 get ('/admin') do
-	erb :admin
+	erb :admin, locals: { shirts: Shirt.all(),}
 end

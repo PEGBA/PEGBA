@@ -1,0 +1,36 @@
+<!DOCTYPE >
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="/styles.css">
+  <meta charset="UTF-8">
+  <title>PEGBA ADMIN</title>
+</head>
+
+  <body>
+    <div class = "container">
+      <div class = "jumbotron">
+        <h1>Welcome Administrator!</h1>
+        <h3>Feel Free to Edit the inventory of our shit!</h3>
+      </div>
+    </div>
+    <ul>
+      <% shirts.each do |shirt| %>
+        <li>
+          <input name='color<%=shirt[:id]%>' placeholder='<%=shirt[:color]%>'></input>
+          <input name='Quantity<%=shirt[:id]%>' placeholder='<%=shirt[:quantity]%>'></input>
+         
+          <img src="<%= shirt[:img_url] %>">
+        
+        </li>
+      <% end %>
+    </ul>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <script src='/index.js'></script>
+  </body>
+</html>
