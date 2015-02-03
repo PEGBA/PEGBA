@@ -1,1 +1,81 @@
 
+/*index styling*/
+#shirt {
+  text-align: center;
+}
+
+#shirt_sub {
+  margin-bottom: 30px;
+}
+
+.index_image {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 20px;
+}
+
+/*cart styling*/
+.cart_image {
+  width: 400px;
+  height: 400px;
+  margin-top: 50px;
+}
+
+#product_header {
+  margin-top: 30px;
+}
+
+#product_description {
+  margin-top: 10px;
+}
+
+#purchase_header {
+  margin-top: 10px;
+}
+
+#purchase_description {
+  margin-top: 10px;
+}
+
+#fullname {
+  margin-top: 15px;
+}
+
+#email {
+  margin-top: 15px;
+}
+
+#quantity {
+  margin-top: 15px;
+}
+
+#purchase {
+  margin-top: 15px;
+}
+
+#guess {
+  padding-left: 45px;
+  padding-top: 20px;
+}
+
+#return {
+  padding-left: 30px;
+  margin-top: 20px;
+}
+
+/*checkout styling*/
+#checkout_header {
+  margin-left: 50px;
+}
+
+#checkout_review {
+  margin-left: 50px;
+}
+
+#hide {
+  visibility: hidden;
+}
+
+#see {
+  visibility: visible;
+}
