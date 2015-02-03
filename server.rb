@@ -20,7 +20,6 @@ get("/cart/:id") do
 end
 
 post('/addToCart/:id') do
-
   shirt = Shirt.find_by({id: params[:id]})
   buyer_hash = {
     name: params[:name],
@@ -60,5 +59,5 @@ put("/confirm/:id") do
 end
 
 get ('/admin') do
-	erb :admin, locals: { shirts: Shirt.all(),}
+	erb :admin, locals: { shirts: Shirt.all() }
 end
