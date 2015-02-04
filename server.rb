@@ -7,6 +7,10 @@ require_relative './lib/purchases'
 require 'pry'
 require 'bcrypt'
 
+use Rack::Session::Pool, :cookie_only => false
+
+my.password = BCrypt::Password.create("my password");
+
 after do
   ActiveRecord::Base.connection.close
 end
