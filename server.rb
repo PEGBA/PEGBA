@@ -64,7 +64,6 @@ end
 
 put ('/confirm_update/:id') do
   update_quantity = params[:quantity]
-  #puts update_quantity
   thank_buyer = Buyer.find_by({id: params[:id]})
 
   transaction_hash = {
@@ -85,7 +84,6 @@ put ('/confirm_update/:id') do
 
   shirt.update(shirt_hash)
 
-  #erb :thank, locals:{ buyer: thank_buyer, purchase: transaction }
   redirect("/confirmed/#{thank_buyer.id}")
 end
 
@@ -120,27 +118,17 @@ get ('/login') do
   erb :adminLogin
 end
 
-get ('/admin') do
-# create another login erb. put an if/else statement here.
-# first if statement will show the login page and have sessions false.
-# if authenticated sessions turns to true.
-#
-# Put this inside the if statement to authenticate password and valid id
-# admin_password = BCrypt::Password.create(params["password"]);
+post ('/admin') do
   admin = Admin.find_by({username: "admin"})
-  puts " "
-  puts " "
-  puts admin
-  puts " "
-  puts " "
+  user_login = params[:username]
 
-  if admin[:password] == params[:password]
+  if admin[:password] == params[:password] && admin[:username] == user_login
     session[:valid_user] = true
+    admin[:password] = BCrypt::Password.create(params["password"]);
     erb :admin, locals:{ buyer: Buyer.all(), shirt: Shirt.all() }
   else
     erb :broken
   end
-
 
 end
 
