@@ -5,7 +5,6 @@ require_relative './lib/shirts'
 require_relative './lib/buyers'
 require_relative './lib/purchases'
 require 'pry'
-require 'sessions'
 require 'bcrypt'
 
 after do
@@ -110,6 +109,11 @@ get ("/confirmed/:id") do
 
   erb :thank, locals:{ buyer: thank_buyer, purchase: transaction }
 end
+
+get ('/login') do
+  erb :adminLogin
+end
+
 
 get ('/admin') do
 # create another login erb. put an if/else statement here. 
