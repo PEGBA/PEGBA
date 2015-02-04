@@ -1,6 +1,7 @@
 require_relative './lib/connection'
 require_relative './lib/buyers'
 require_relative './lib/shirts'
+require_relative './lib/admin'
 require 'pry'
 
 
@@ -69,6 +70,6 @@ Shirt.create({
 	})
 
 Admin.create({
-	username: "admin", 
+	username: "admin",
 	password: "bewbs"
 	})

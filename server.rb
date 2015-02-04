@@ -4,6 +4,7 @@ require_relative './lib/connection'
 require_relative './lib/shirts'
 require_relative './lib/buyers'
 require_relative './lib/purchases'
+require_relative './lib/admin'
 require 'pry'
 require 'bcrypt'
 
@@ -115,39 +116,32 @@ end
 
 
 get ('/login') do
+
   erb :adminLogin
 end
 
-put ('/create') do
-  # if (req.body.newPassword === req.body.confirmPass){
-  #   var hash = bcrypt.hashSync(password, 8);
-  #   // Now the password is the hash you have created
-  #   db.run('INSERT INTO users(username, password) VALUES (?, ?)', username, hash, function(err){
-  #     if(err) { throw err;}
-
-  #   });
-  #   res.redirect('/');
-  # } else {
-  #   res.redirect('/');
-  # }
-
-  redirect :adminLogin
-end
-
 get ('/admin') do
-# create another login erb. put an if/else statement here. 
-# first if statement will show the login page and have sessions false. 
-# if authenticated sessions turns to true. 
-
+# create another login erb. put an if/else statement here.
+# first if statement will show the login page and have sessions false.
+# if authenticated sessions turns to true.
+#
 # Put this inside the if statement to authenticate password and valid id
-# my.password = BCrypt::Password.create(params["password"]);
+# admin_password = BCrypt::Password.create(params["password"]);
+  admin = Admin.find_by({username: "admin"})
+  puts " "
+  puts " "
+  puts admin
+  puts " "
+  puts " "
 
-# if my.password == params["password"]
-#   session[:valid_user] = true
-# end
+  if admin[:password] == params[:password]
+    session[:valid_user] = true
+    erb :admin, locals:{ buyer: Buyer.all(), shirt: Shirt.all() }
+  else
+    erb :broken
+  end
 
 
-  erb :admin, locals:{ buyer: Buyer.all(), shirt: Shirt.all() }
 end
 
 put('/admin/:id') do
@@ -159,11 +153,7 @@ put('/admin/:id') do
   }
 
   shirt.update(total_shirts)
-  puts " "
-  puts " "
   puts total_shirts
-  puts " "
-  puts " "
 
   redirect('/admin')
 end
