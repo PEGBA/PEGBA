@@ -151,6 +151,7 @@ put('/admin/:id') do
 end
 
 get('/admin/login') do
+  
   redirect('/login')
 end
 
