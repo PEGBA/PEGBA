@@ -12,7 +12,7 @@
   <title>PEGBA</title>
 </head>
 
-  <body class = "styling"> 
+  <body class = "styling">
 
     <div class = "container">
       <div class = "jumbotron">
@@ -20,7 +20,9 @@
         <h3>Feel Free to Edit the inventory of our shit!</h3>
       </div>
     </div>
-    <button id="logOut">Log Out</button>
+    <form action="/admin/logout" method="post">
+      <button id="logOut">Log Out</button>
+    </form>
     <ul>
         <% shirt.each do |shirt| %>
           <li>
