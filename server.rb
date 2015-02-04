@@ -149,3 +149,8 @@ put('/admin/:id') do
 
   redirect('/admin')
 end
+
+put('/logout/:id') do
+
+  redirect('/admin')
+end
