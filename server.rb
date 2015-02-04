@@ -160,3 +160,7 @@ post('/admin/logout') do
 
   redirect('/login')
 end
+
+get('/aboutMe') do
+  erb :about
+end
