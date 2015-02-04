@@ -12,16 +12,16 @@
   <title>PEGBA Login</title>
 </head>
 
-  <body>
+  <body class = "styling">
     <h1> Welcome to the PEGBA login page </h1>
 
 
-    <h3>If you are an admin please login here</h3>
+    <h3>If you are an admin please login here:</h3>
 
-        <form action="/admin" method="POST">
+        <form action="/admin" method="POST" id = "login">
           <input type="hidden" name="_method" value="post">
-          <input name="username" placeholder="Your Username">
-          <input name="password" placeholder="Your Password">
+          <input name="username" placeholder="Admin Username">
+          <input name="password" placeholder="Admin Password">
           <button>Login</button>
         </form>
 

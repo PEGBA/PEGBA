@@ -77,7 +77,7 @@ put ('/confirm_update/:id') do
   shirt = Shirt.find_by({id: thank_buyer[:shirt_id]})
   shirt_hash = {
     color: shirt[:color],
-    quantity: shirt[:quantity] - thank_buyer[:quantity],
+    quantity: shirt[:quantity] - update_quantity.to_i,
     img_url: shirt[:img_url],
     price: shirt[:price]
   }

@@ -96,10 +96,20 @@
   visibility: visible;
 }
 
-#thanks {
+/*admin styling*/
+.styling {
   margin-left: 50px;
+}
+
+/*admin styling*/
+#login {
+  margin-top: 20px;
 }
 
 ul {
   list-style-type: none;
+}
+
+#admin_image {
+  margin-left: 50px;
 }

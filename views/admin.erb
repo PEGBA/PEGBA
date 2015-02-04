@@ -12,13 +12,7 @@
   <title>PEGBA</title>
 </head>
 
-  <body>
-
-    <ul>
-      <% buyer.each do |person| %>
-      <li><%= person.name %></li>
-      <% end %>
-    </ul>
+  <body class = "styling"> 
 
     <div class = "container">
       <div class = "jumbotron">
@@ -32,7 +26,7 @@
           <li>
 
             <form action="/admin/<%= shirt.id %>" method="post">
-              <img src="<%= shirt[:img_url] %>">
+              <img src="<%= shirt[:img_url] %>" class = "index_image" id = "admin_image">
               <input type="hidden" name="_method" value="put">
               <input type="text" name='<%= shirt.id %>' placeholder='<%=shirt[:color]%>' readonly></input>
               <input type="text" name='quantity' placeholder='Current Shirts <%=shirt[:quantity]%>'></input>
