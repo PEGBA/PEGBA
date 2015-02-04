@@ -29,7 +29,7 @@
       </div>
     </div>
     <ul>
-      <% shirts.each do |shirt| %>
+      <% shirt.each do |shirt| %>
         <li>
           <input name='color<%=shirt[:id]%>' placeholder='<%=shirt[:color]%>'></input>
           <input name='Quantity<%=shirt[:id]%>' placeholder='<%=shirt[:quantity]%>'></input>
