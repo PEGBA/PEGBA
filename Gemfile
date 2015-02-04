@@ -6,5 +6,6 @@ source "https://rubygems.org"
 gem 'pry'
 gem 'sinatra'
 gem 'json'
-gem 'sinatra/reloader'
+gem 'sinatra-reloader'
 gem 'activerecord'
+gem 'bcrypt'

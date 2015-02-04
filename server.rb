@@ -114,17 +114,21 @@ end
 
 
 get ('/login') do
-
   erb :adminLogin
+end
+
+get ('/admin') do
+  erb :access
 end
 
 post ('/admin') do
   admin = Admin.find_by({username: "admin"})
-  user_login = params[:username]
+  admin_password = BCrypt::Password.new(admin[:password])
+  username = params[:username]
+  password = params[:password]
 
-  if admin[:password] == params[:password] && admin[:username] == user_login
+  if admin[:username] == username && admin_password == password
     session[:valid_user] = true
-    admin[:password] = BCrypt::Password.create(params["password"]);
     erb :admin, locals:{ buyer: Buyer.all(), shirt: Shirt.all() }
   else
     erb :broken

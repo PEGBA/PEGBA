@@ -3,6 +3,7 @@ require_relative './lib/buyers'
 require_relative './lib/shirts'
 require_relative './lib/admin'
 require 'pry'
+require 'bcrypt'
 
 
 Shirt.create({
@@ -71,5 +72,5 @@ Shirt.create({
 
 Admin.create({
 	username: "admin",
-	password: "bewbs"
+	password: BCrypt::Password.create("bewbs")
 	})
