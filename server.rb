@@ -119,19 +119,19 @@ get ('/login') do
 end
 
 put ('/create') do
-  # if (req.body.newPassword === req.body.confirmPass){
-  #   var hash = bcrypt.hashSync(password, 8);
-  #   // Now the password is the hash you have created
-  #   db.run('INSERT INTO users(username, password) VALUES (?, ?)', username, hash, function(err){
-  #     if(err) { throw err;}
 
-  #   });
-  #   res.redirect('/');
-  # } else {
-  #   res.redirect('/');
-  # }
+  if (req.body.newPassword === req.body.confirmPass){
+    var hash = bcrypt.hashSync(password, 8);
+    // Now the password is the hash you have created
+    db.run('INSERT INTO users(username, password) VALUES (?, ?)', username, hash, function(err){
+      if(err) { throw err;}
 
-  redirect :adminLogin
+    });
+      redirect :adminLogin
+  } else {
+      redirect :adminLogin
+  }
+
 end
 
 get ('/admin') do
