@@ -1,6 +1,7 @@
 require_relative './lib/connection'
 require_relative './lib/buyers'
 require_relative './lib/shirts'
+require_relative './lib/admin'
 require 'pry'
 
 
@@ -66,4 +67,9 @@ Shirt.create({
 	img_url: "http://www.superheroden.com/images/Batman_Circle_Logo_Light_Gray_Shirt2.jpg",
 	price: 10,
 	owner: "Batman"
+	})
+
+Admin.create({
+	username: "admin",
+	password: "bewbs"
 	})

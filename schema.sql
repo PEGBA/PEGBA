@@ -23,9 +23,8 @@ CREATE TABLE purchases (
 	quantity INTEGER
 );
 
-CREATE TABLE admin(
+CREATE TABLE admins(
 	id INTEGER PRIMARY KEY,
 	username TEXT,
 	password TEXT
 );
-
