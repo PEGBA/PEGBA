@@ -16,13 +16,17 @@
 
     <div class = "container">
       <div class = "jumbotron">
+        <div class = "row">
+          <div class = "col-md-2 col-md-offset-11">
+            <form action="/admin/logout" method="post" id = "logout">
+              <button id="logOut">Log Out</button>
+            </form>
+          </div>
+        </div>
         <h1>Welcome Administrator!</h1>
         <h3>Feel Free to Edit the inventory of our shit!</h3>
       </div>
     </div>
-    <form action="/admin/logout" method="post">
-      <button id="logOut">Log Out</button>
-    </form>
     <ul>
         <% shirt.each do |shirt| %>
           <li>
