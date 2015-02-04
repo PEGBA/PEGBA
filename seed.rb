@@ -67,3 +67,8 @@ Shirt.create({
 	price: 10,
 	owner: "Batman"
 	})
+
+Admin.create({
+	username: "admin", 
+	password: "bewbs"
+	})

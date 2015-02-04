@@ -1,0 +1,41 @@
+<!DOCTYPE >
+<html lang="en">
+
+<head>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="/styles.css">
+  <meta charset="UTF-8">
+
+  <title>PEGBA Login</title>
+</head>
+
+  <body>
+    <h1> Welcome to the PEGBA login page </h1>
+
+
+    <h3>If you are an admin please login here</h3>
+
+        <form action="/admin" method="GET">
+          <input name="username" placeholder="Your Username">
+          <input name="password" placeholder="Your Password">
+          <button>Login</button>
+        </form>
+
+    <h3>If you are not an admin and would like to be please enter your credentials here</h3>
+
+        <form action="/create" method="PUT">
+          <input name="newName" placeholder="Your Username">
+          <input name="newPassword" placeholder="Your Password">
+          <input name="confirmPass" placeholder="Confirm Password">
+          <button>Submit Application</button>
+        </form> 
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <script src='/index.js'></script>
+
+  </body>
+</html>

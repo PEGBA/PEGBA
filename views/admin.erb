@@ -28,16 +28,23 @@
         <h3>Feel Free to Edit the inventory of our shit!</h3>
       </div>
     </div>
+
     <ul>
-      <% shirt.each do |shirt| %>
-        <li>
-          <input name='color<%=shirt[:id]%>' placeholder='<%=shirt[:color]%>'></input>
-          <input name='Quantity<%=shirt[:id]%>' placeholder='<%=shirt[:quantity]%>'></input>
+        <% shirt.each do |shirt| %>
+          <li>
 
-          <img src="<%= shirt[:img_url] %>">
+            <form action="/admin/<%= shirt.id %>" method="post">
+              <img src="<%= shirt[:img_url] %>">
+              <input type="hidden" name="_method" value="put">
+              <input type="text" name='<%= shirt.id %>' placeholder='<%=shirt[:color]%>' readonly></input>
+              <input type="text" name='quantity' placeholder='Current Shirts <%=shirt[:quantity]%>'></input>
+              <button>Submit edits</button>
+            </form>
 
-        </li>
-      <% end %>
+          </li>
+
+        <% end %>
+
     </ul>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

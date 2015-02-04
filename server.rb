@@ -5,6 +5,9 @@ require_relative './lib/shirts'
 require_relative './lib/buyers'
 require_relative './lib/purchases'
 require 'pry'
+require 'bcrypt'
+
+use Rack::Session::Pool, :cookie_only => false
 
 after do
   ActiveRecord::Base.connection.close
@@ -60,7 +63,7 @@ end
 
 put ('/confirm_update/:id') do
   update_quantity = params[:quantity]
-  puts update_quantity
+  #puts update_quantity
   thank_buyer = Buyer.find_by({id: params[:id]})
 
   transaction_hash = {
@@ -86,7 +89,6 @@ put ('/confirm_update/:id') do
 end
 
 get ("/confirmed/:id") do
-
   thank_buyer = Buyer.find_by({id: params[:id]})
 
   transaction_hash = {
@@ -110,8 +112,58 @@ get ("/confirmed/:id") do
   erb :thank, locals:{ buyer: thank_buyer, purchase: transaction }
 end
 
+
+
+get ('/login') do
+  erb :adminLogin
+end
+
+put ('/create') do
+  # if (req.body.newPassword === req.body.confirmPass){
+  #   var hash = bcrypt.hashSync(password, 8);
+  #   // Now the password is the hash you have created
+  #   db.run('INSERT INTO users(username, password) VALUES (?, ?)', username, hash, function(err){
+  #     if(err) { throw err;}
+
+  #   });
+  #   res.redirect('/');
+  # } else {
+  #   res.redirect('/');
+  # }
+
+  redirect :adminLogin
+end
+
 get ('/admin') do
+# create another login erb. put an if/else statement here. 
+# first if statement will show the login page and have sessions false. 
+# if authenticated sessions turns to true. 
 
-	erb :admin, locals:{ buyer: Buyer.all(), shirt: Shirt.all() }
+# Put this inside the if statement to authenticate password and valid id
+# my.password = BCrypt::Password.create(params["password"]);
 
+# if my.password == params["password"]
+#   session[:valid_user] = true
+# end
+
+
+  erb :admin, locals:{ buyer: Buyer.all(), shirt: Shirt.all() }
+end
+
+put('/admin/:id') do
+  shirt = Shirt.find_by({id: params[:id].to_i})
+  shirt_amount = params[:quantity].to_i
+
+  total_shirts = {
+    quantity: shirt[:quantity] + shirt_amount,
+  }
+
+  shirt.update(total_shirts)
+  puts " "
+  puts " "
+  puts total_shirts
+  puts " "
+  puts " "
+
+  redirect('/admin')
 end
