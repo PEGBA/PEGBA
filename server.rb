@@ -150,6 +150,10 @@ put('/admin/:id') do
   redirect('/admin')
 end
 
+get('/admin/login') do
+  redirect('/login')
+end
+
 post('/admin/logout') do
   session[:valid_user] = false
 
