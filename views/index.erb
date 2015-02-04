@@ -14,14 +14,14 @@
     <div class = "container">
       <div class = "jumbotron">
 
-        
-        <div class = "row">  
+
+        <div class = "row">
           <div class = "col-md-3 col-md-offset-10">
             <form action="/admin/login" method="get" id = "admin">
               <button id="admin">Admin</button>
             </form>
           </div>
-          
+
           <div class = "row">
           <div class = "col-md-3 col-md-offset-10">
             <form action="/aboutMe" method="get" id = "aboutMe">
@@ -29,15 +29,15 @@
             </form>
           </div>
           </div>
-          
+
           <div class = "row">
           <div class = "col-md-3 col-md-offset-10">
             <form action="/admin/logout" method="post" id = "logout">
-              <button id="logOut">Customer Service</button>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Customer Service</button>
             </form>
           </div>
           </div>
-        
+
         </div>
         <h1>Welcome to PEGBA!</h1>
         <h3>At PEGBA, or Previously Enjoyed Goods by Alvin, we pride ourselves on providing
@@ -59,8 +59,32 @@
       </div>
     </div>
 
+
+
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="exampleModalLabel">Customer Service</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <p for="recipient-name" class="control-label"><h1>Better Think again, this ain't AMAZON</h1></p>
+          </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-  <script src='/index.js'></script>
+  <!-- // <script src='/index.js'></script> -->
   </body>
 </html>
