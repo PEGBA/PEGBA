@@ -99,3 +99,7 @@
 #thanks {
   margin-left: 50px;
 }
+
+ul {
+  list-style-type: none;
+}
