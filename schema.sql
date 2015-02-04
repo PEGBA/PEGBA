@@ -22,3 +22,10 @@ CREATE TABLE purchases (
 	buyer_id INTEGER,
 	quantity INTEGER
 );
+
+CREATE TABLE admin(
+	id INTEGER PRIMARY KEY,
+	username TEXT,
+	password TEXT
+);
+

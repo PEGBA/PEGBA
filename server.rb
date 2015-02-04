@@ -5,6 +5,8 @@ require_relative './lib/shirts'
 require_relative './lib/buyers'
 require_relative './lib/purchases'
 require 'pry'
+require 'sessions'
+require 'bcrypt'
 
 after do
   ActiveRecord::Base.connection.close
@@ -110,7 +112,9 @@ get ("/confirmed/:id") do
 end
 
 get ('/admin') do
-
+# create another login erb. put an if/else statement here. 
+# first if statement will show the login page and have sessions false. 
+# if authenticated sessions turns to true. 
   erb :admin, locals:{ buyer: Buyer.all(), shirt: Shirt.all() }
 end
 
