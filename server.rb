@@ -60,7 +60,7 @@ end
 
 put ('/confirm_update/:id') do
   update_quantity = params[:quantity]
-  puts update_quantity
+  #puts update_quantity
   thank_buyer = Buyer.find_by({id: params[:id]})
 
   transaction_hash = {
@@ -86,7 +86,6 @@ put ('/confirm_update/:id') do
 end
 
 get ("/confirmed/:id") do
-
   thank_buyer = Buyer.find_by({id: params[:id]})
 
   transaction_hash = {
@@ -112,6 +111,23 @@ end
 
 get ('/admin') do
 
-	erb :admin, locals:{ buyer: Buyer.all(), shirt: Shirt.all() }
+  erb :admin, locals:{ buyer: Buyer.all(), shirt: Shirt.all() }
+end
 
+put('/admin/:id') do
+  shirt = Shirt.find_by({id: params[:id].to_i})
+  shirt_amount = params[:quantity].to_i
+
+  total_shirts = {
+    quantity: shirt[:quantity] + shirt_amount,
+  }
+
+  shirt.update(total_shirts)
+  puts " "
+  puts " "
+  puts total_shirts
+  puts " "
+  puts " "
+
+  redirect('/admin')
 end
